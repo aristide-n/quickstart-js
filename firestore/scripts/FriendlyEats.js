@@ -30,8 +30,9 @@ function FriendlyEats() { // eslint-disable-line no-redeclare
 
   var that = this;
 
-  firebase.firestore().enablePersistence()
+  firebase.firestore().enablePersistence({synchronizeTabs:true})
     .then(function() {
+      console.log("Woohoo! Multi-Tab Persistence!");
       return firebase.auth().signInAnonymously();
     })
     .then(function() {
